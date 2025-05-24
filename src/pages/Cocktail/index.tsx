@@ -2,21 +2,22 @@ import { useParams } from "react-router"
 
 import { CocktailCode } from "@state/types/app"
 import { CocktailItem, useCocktailsStore } from "@state/stores/cocktailsStore"
-import { NotFound } from "@pages/NotFound"
 import config from "@config/index"
 
 import { Item } from "./Item"
 
-import { useEffect, useState, type FC } from "react"
+import { lazy, useEffect, useState, type FC } from "react"
 
 import style from "./style.module.scss"
+
+const NotFound = lazy(() => import("@pages/NotFound/index"))
 
 type Params = {
   cocktailCode: string
 }
 
 const getFormattedElement = (el: CocktailItem): CocktailItem => {
-  const newEl = { ...el }
+  const newEl = structuredClone(el)
 
   for (let key in el) {
     if (key.includes("strIngredient") && !!newEl[key] && newEl.hasOwnProperty("strIngredients")) {

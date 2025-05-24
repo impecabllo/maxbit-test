@@ -38,12 +38,7 @@ export const Item: FC<Props> = ({ item }) => {
       </div>
 
       <div className={style.image}>
-        <LazyLoadImage
-          alt={item.strDrink}
-          height={200}
-          src={item.strDrinkThumb} // use normal <img> attributes as props
-          width={200}
-        />
+        <LazyLoadImage alt={item.strDrink} height={200} src={item.strDrinkThumb} width={200} />
       </div>
     </div>
   )
