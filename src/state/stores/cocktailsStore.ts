@@ -7,6 +7,10 @@ export type CocktailItem = {
   strCategory: string
   strAlcoholic: string
   strGlass: string
+  strInstructions: string
+  strMeasures: string[]
+  strIngredients: string[]
+  strDrinkThumb: string
 }
 
 type State = {

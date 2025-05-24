@@ -1,10 +1,19 @@
+@use "@styles/mixins.scss" as *;
+@use "@styles/vars.scss" as *;
+
 $sidebar-width: 160px;
 
 .wrapper {
-  padding: 40px 0 40px $sidebar-width;
+  padding: 40px 0;
+  max-width: 100%;
+  overflow: hidden;
+
+  @include from($md) {
+    padding-left: $sidebar-width;
+    max-width: calc(100% - $sidebar-width);
+  }
 
   .content {
-    width: 100%;
     max-width: 1024px;
     margin: 0 auto;
     padding: 0 20px;
@@ -15,11 +24,18 @@ $sidebar-width: 160px;
   display: flex;
   flex-direction: column;
   row-gap: 4px;
-  padding: 40px 0;
-  border-right: 1px solid #eee;
-  height: calc(100vh - 80px);
-  position: fixed;
-  width: $sidebar-width;
+  padding: 16px 0;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+
+  @include from($md) {
+    width: $sidebar-width;
+    border-right: 1px solid #eee;
+    border-bottom: none;
+    position: fixed;
+    height: calc(100vh - 80px);
+    padding: 40px 0;
+  }
 
   .linkItem {
     padding: 8px 16px;

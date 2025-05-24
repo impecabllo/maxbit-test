@@ -1,0 +1,33 @@
+@use "@styles/mixins.scss" as *;
+@use "@styles/vars.scss" as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+  }
+
+  .content {
+    display: grid;
+    gap: 16px;
+
+    @include from($md) {
+      grid-template-columns: auto 200px;
+    }
+
+    h4,
+    p {
+      margin: 4px 0;
+    }
+
+    .ingredients {
+      display: flex;
+      column-gap: 24px;
+    }
+  }
+}
