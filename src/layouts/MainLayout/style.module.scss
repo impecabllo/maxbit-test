@@ -1,0 +1,36 @@
+$sidebar-width: 160px;
+
+.wrapper {
+  padding: 40px 0 40px $sidebar-width;
+
+  .content {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+  padding: 40px 0;
+  border-right: 1px solid #eee;
+  height: calc(100vh - 80px);
+  position: fixed;
+  width: $sidebar-width;
+
+  .linkItem {
+    padding: 8px 16px;
+    color: #000;
+    text-decoration: none;
+    text-transform: capitalize;
+    background-color: #fff;
+
+    &:hover,
+    &.selected {
+      background-color: #eee;
+    }
+  }
+}
